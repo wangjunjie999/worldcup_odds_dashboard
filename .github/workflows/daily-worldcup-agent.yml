@@ -1,0 +1,30 @@
+name: Daily World Cup Agent
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 16 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  validate-current-site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Validate current static data
+        run: node scripts/validate-data.js
+
+      - name: Print agent command
+        run: |
+          echo "Trae SOLO / external agent command is stored in automation/TRAE_SOLO_DAILY_COMMAND.md"
+          echo "This workflow validates committed data. Connect the command to a Trae/Codex cloud runner before enabling unattended scraping."
+

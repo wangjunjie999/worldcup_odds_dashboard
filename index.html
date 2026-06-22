@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>美加墨世界杯赔率变化复盘</title>
+  <link rel="stylesheet" href="styles.css?v=20260621-score-odds">
+</head>
+<body>
+<div class="app">
+  <header class="hero">
+    <div>
+      <div class="eyebrow">WORLD CUP ODDS REVIEW · STATIC DASHBOARD</div>
+      <h1>世界杯赔率变化复盘台</h1>
+      <p>按照“比赛编号 / 让球 / 两队排名 / 初盘→终盘 / 箭头变化 / 最终赛果”的手写逻辑整理。比赛按让球档位集中展示，颜色按热门赔率档位区分；除加拿大、美国、墨西哥外，其余默认按中立场处理。</p>
+    </div>
+    <div class="hero-badge"><strong>2026</strong><span>美加墨世界杯数据页</span></div>
+  </header>
+
+  <nav class="page-tabs" aria-label="页面切换">
+    <a class="page-tab active" href="index.html?v=20260621-score-odds">赔率数据</a>
+    <a class="page-tab" href="bracket.html?v=20260621-bracket-fit">晋级图 / 小组排名</a>
+  </nav>
+
+  <section class="toolbar">
+    <input id="search" class="control search" placeholder="搜索球队、编号或日期">
+    <select id="handicap" class="control">
+      <option value="all">全部让球</option>
+      <option value="-3">让 -3</option>
+      <option value="-2">让 -2</option>
+      <option value="-1">让 -1</option>
+      <option value="1">受让 +1</option>
+      <option value="2">受让 +2</option>
+    </select>
+    <select id="tier" class="control">
+      <option value="all">全部档位</option>
+      <option value="extreme">极热档</option>
+      <option value="strong">强热档</option>
+      <option value="mid">中热档</option>
+      <option value="balanced">均衡档</option>
+      <option value="high">高赔档</option>
+    </select>
+    <select id="status" class="control">
+      <option value="all">全部数据状态</option>
+      <option value="已录入">已录入</option>
+      <option value="待复核">待复核</option>
+    </select>
+    <select id="sort" class="control">
+      <option value="date-desc">日期：新到旧</option>
+      <option value="date-asc">日期：旧到新</option>
+      <option value="favorite">热门赔率：低到高</option>
+      <option value="handicap">让球：深到浅</option>
+    </select>
+    <button id="compactBtn" class="btn">紧凑模式</button>
+  </section>
+
+  <section id="stats" class="stats"></section>
+
+  <section class="legend">
+    <span class="legend-item"><i class="dot" style="background:var(--tier-extreme)"></i>极热 ≤1.35</span>
+    <span class="legend-item"><i class="dot" style="background:var(--tier-strong)"></i>强热 1.36–1.55</span>
+    <span class="legend-item"><i class="dot" style="background:var(--tier-mid)"></i>中热 1.56–1.80</span>
+    <span class="legend-item"><i class="dot" style="background:var(--tier-balanced)"></i>均衡 1.81–2.30</span>
+    <span class="legend-item"><i class="dot" style="background:var(--tier-high)"></i>高赔 ＞2.30</span>
+    <span class="legend-item">蓝色↓＝赔率下降</span>
+    <span class="legend-item">红色↑＝赔率上升</span>
+    <span class="legend-item">历史箭头＝相较上一条变化</span>
+    <span class="legend-item">总趋势＝初始最低项 初始→结算</span>
+    <span class="legend-item">曲线＝该市场终盘最低赔率项</span>
+    <span class="legend-item">点击比赛卡片展开完整变化</span>
+  </section>
+
+  <main id="content"></main>
+
+  <footer class="footer">
+    数据来源：用户保存的 sporttery.cn 比赛固定奖金页面截图。页面为离线静态分析工具，不自动联网抓取。标注“待复核”的记录保留为可编辑摘要，后续代理应以原始截图为准补齐，不得猜测模糊数字。
+  </footer>
+</div>
+<script src="data.js?v=20260621-score-odds"></script>
+<script src="app.js?v=20260621-score-odds"></script>
+</body>
+</html>

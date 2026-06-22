@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>美加墨世界杯晋级图与小组排名</title>
+  <link rel="stylesheet" href="styles.css?v=20260621-bracket-fit">
+</head>
+<body>
+<div class="app bracket-app">
+  <header class="hero bracket-hero">
+    <div>
+      <div class="eyebrow">WORLD CUP QUALIFICATION · STATIC BRACKET</div>
+      <h1>世界杯晋级图与小组排名</h1>
+      <p>按已录入小组赛结果自动计算积分榜，展示 32 强到冠军的左右分栏晋级路径。国旗与 FIFA 排名使用本地静态数据，页面可离线查看。</p>
+    </div>
+    <div class="hero-badge"><strong>32</strong><span>强晋级路径</span></div>
+  </header>
+
+  <nav class="page-tabs" aria-label="页面切换">
+    <a class="page-tab" href="index.html?v=20260621-bracket-fit">赔率数据</a>
+    <a class="page-tab active" href="bracket.html?v=20260621-bracket-fit">晋级图 / 小组排名</a>
+  </nav>
+
+  <main>
+    <section id="bracketSummary" class="advance-stats"></section>
+    <section id="fullBracket" class="full-bracket-shell"></section>
+    <section id="groupStandings" class="standings-board"></section>
+  </main>
+
+  <footer class="footer">
+    淘汰赛骨架参考 FIFA 2026 赛程；FIFA 排名默认采用 FIFA/Coca-Cola 男足世界排名 2026-06-11 批次。第三名落位仅展示官方候选组与当前候选球队，不推断附录组合表。
+  </footer>
+</div>
+<script src="data.js?v=20260621-bracket-fit"></script>
+<script src="bracket.js?v=20260621-bracket-fit"></script>
+</body>
+</html>
