@@ -112,3 +112,5 @@ node scripts/validate-data.js
 ```
 
 校验通过后再提交并推送 GitHub。仓库包含 `.github/workflows/daily-worldcup-agent.yml`，当前用于每日校验和保留云端任务入口；真正无人值守抓取需要把 Trae SOLO 或其他云端代理接入该命令。
+
+当前 GitHub Pages 由 `gh-pages` 分支发布；`.github/workflows/publish-pages.yml` 会在 `main` 更新后自动校验并同步到 `gh-pages`。
