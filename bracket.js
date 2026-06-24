@@ -87,6 +87,28 @@ function standingComparator(a,b){
     || (a.seed-b.seed);
 }
 
+function thirdPlaceComparator(a,b){
+  return (b.points-a.points)
+    || (b.gd-a.gd)
+    || (b.gf-a.gf)
+    || ((a.fifaRank ?? 999) - (b.fifaRank ?? 999))
+    || a.group.localeCompare(b.group)
+    || (a.tieSeed-b.tieSeed)
+    || (a.seed-b.seed);
+}
+
+function gdText(row){
+  return row.gd > 0 ? `+${row.gd}` : row.gd;
+}
+
+function recordText(row){
+  return `${row.win}/${row.draw}/${row.lose}`;
+}
+
+function goalsText(row){
+  return `${row.gf}/${row.ga}`;
+}
+
 function buildStandings(){
   const groupRows = groups().map(group => ({
     ...group,
@@ -125,7 +147,7 @@ function buildStandings(){
   });
 
   groupRows.forEach(group => group.rows.sort(standingComparator));
-  const thirdRows = groupRows.map(group => group.rows[2]).filter(Boolean).sort(standingComparator);
+  const thirdRows = groupRows.map(group => group.rows[2]).filter(Boolean).sort(thirdPlaceComparator);
   const bestThirdKeys = new Set(thirdRows.slice(0, 8).map(row => `${row.group}-${row.team}`));
   return { groups: groupRows, thirdRows, bestThirdKeys };
 }
@@ -135,6 +157,10 @@ function rankStatus(row, index, bestThirdKeys){
   if(index === 2 && bestThirdKeys.has(`${row.group}-${row.team}`)) return { text: "暂列晋级", cls: "third-in" };
   if(index === 2) return { text: "第三名比较", cls: "third-out" };
   return { text: "暂出局", cls: "out" };
+}
+
+function thirdRankStatus(index){
+  return index < 8 ? { text: "暂列晋级", cls: "third-in" } : { text: "暂列出局", cls: "third-out" };
 }
 
 function flag(team, className="flag"){
@@ -372,13 +398,13 @@ function renderSummary(model){
 function renderStandings(model){
   $("#groupStandings").innerHTML = `<div class="board-title">
     <h2>小组积分榜排名</h2>
-    <span>A-L 组 · 每组前二 + 8 个成绩最好第三名</span>
+    <span>A-L 组 · 每组前二直通，第三名总排名见下方</span>
   </div>
   <div class="standings-grid">
     ${model.groups.map(group => `<section class="standing-card">
       <div class="standing-card-head"><h3>${esc(group.name)}</h3><span>${group.matchCount}/6 场</span></div>
       <div class="standing-table-wrap"><table>
-        <thead><tr><th>名次</th><th>球队</th><th>排名</th><th>赛</th><th>胜</th><th>平</th><th>负</th><th>进</th><th>失</th><th>净</th><th>分</th><th>状态</th></tr></thead>
+        <thead><tr><th>名次</th><th>球队</th><th>FIFA</th><th>赛</th><th>胜/平/负</th><th>进/失</th><th>净</th><th>分</th><th>状态</th></tr></thead>
         <tbody>${group.rows.map((row, index) => {
           const status = rankStatus(row, index, model.bestThirdKeys);
           return `<tr class="${status.cls}">
@@ -386,19 +412,43 @@ function renderStandings(model){
             <td>${teamLine(row.team, `${group.id}${index+1}`)}</td>
             <td>${row.fifaRank ?? "—"}</td>
             <td>${row.played}</td>
-            <td>${row.win}</td>
-            <td>${row.draw}</td>
-            <td>${row.lose}</td>
-            <td>${row.gf}</td>
-            <td>${row.ga}</td>
-            <td>${row.gd > 0 ? `+${row.gd}` : row.gd}</td>
+            <td class="record-cell">${recordText(row)}</td>
+            <td>${goalsText(row)}</td>
+            <td>${gdText(row)}</td>
             <td><b>${row.points}</b></td>
             <td>${status.text}</td>
           </tr>`;
         }).join("")}</tbody>
       </table></div>
     </section>`).join("")}
-  </div>`;
+  </div>
+  <section class="third-ranking-board">
+    <div class="third-ranking-head">
+      <div>
+        <h3>小组第三名晋级排名</h3>
+        <p>前 8 名进入 32 强；当前按积分、净胜球、进球数比较。公平竞赛分和抽签未录入时，用 FIFA 排名作临时展示顺序，需复核后再定最终同分名次。</p>
+      </div>
+      <span>${Math.min(model.thirdRows.length, 8)}/8 晋级区</span>
+    </div>
+    <div class="standing-table-wrap"><table class="third-ranking-table">
+      <thead><tr><th>排名</th><th>球队</th><th>小组</th><th>赛</th><th>胜/平/负</th><th>进/失</th><th>净</th><th>分</th><th>FIFA</th><th>状态</th></tr></thead>
+      <tbody>${model.thirdRows.map((row, index) => {
+        const status = thirdRankStatus(index);
+        return `<tr class="${status.cls}">
+          <td>${index + 1}</td>
+          <td>${teamLine(row.team, `${row.group}3`)}</td>
+          <td>${row.group} 组</td>
+          <td>${row.played}</td>
+          <td class="record-cell">${recordText(row)}</td>
+          <td>${goalsText(row)}</td>
+          <td>${gdText(row)}</td>
+          <td><b>${row.points}</b></td>
+          <td>${row.fifaRank ?? "—"}</td>
+          <td>${status.text}</td>
+        </tr>`;
+      }).join("")}</tbody>
+    </table></div>
+  </section>`;
 }
 
 function validateData(){

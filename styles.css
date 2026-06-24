@@ -122,11 +122,24 @@ td:first-child,th:first-child{text-align:left}
 .standing-table-wrap{width:100%;max-width:100%;overflow-x:auto;overflow-y:hidden}
 .standing-card table{font-size:11px}
 .standing-card th,.standing-card td{padding:7px 6px}
-.standing-card td:nth-child(2),.standing-card th:nth-child(2){text-align:left;min-width:64px}
+.standing-card td:nth-child(2),.standing-card th:nth-child(2){text-align:left;min-width:74px}
+.record-cell{font-variant-numeric:tabular-nums;font-weight:850;color:#eaf2ff}
 .standing-card tr.direct td:last-child{color:#69edae}
 .standing-card tr.third-in td:last-child{color:#6fdcff}
 .standing-card tr.third-out td:last-child{color:#ffd875}
 .standing-card tr.out{color:#8799b4}
+.third-ranking-board{margin-top:14px;border:1px solid #293f60;background:#0f182a;border-radius:12px;overflow:hidden}
+.third-ranking-head{display:flex;justify-content:space-between;align-items:end;gap:14px;padding:13px 14px 10px}
+.third-ranking-head h3{margin:0 0 4px;font-size:16px;color:#eaf2ff}
+.third-ranking-head p{margin:0;max-width:860px;color:#94a8c4;font-size:12px;line-height:1.55}
+.third-ranking-head span{flex:0 0 auto;border:1px solid rgba(111,220,255,.32);background:rgba(69,208,255,.08);border-radius:999px;padding:6px 10px;color:#6fdcff;font-size:12px;font-weight:900}
+.third-ranking-table{font-size:11px}
+.third-ranking-table th,.third-ranking-table td{padding:7px 8px}
+.third-ranking-table td:nth-child(2),.third-ranking-table th:nth-child(2){text-align:left;min-width:116px}
+.third-ranking-table tr.third-in{background:rgba(69,208,255,.045)}
+.third-ranking-table tr.third-in td:last-child{color:#6fdcff}
+.third-ranking-table tr.third-out{background:rgba(255,207,90,.035)}
+.third-ranking-table tr.third-out td:last-child{color:#ffd875}
 .bracket-app{max-width:1900px}
 .bracket-hero{background:linear-gradient(135deg,rgba(20,60,83,.88),rgba(18,25,45,.94))}
 .full-bracket-shell{margin:18px 0 26px;border:1px solid #304763;background:linear-gradient(180deg,rgba(19,32,54,.96),rgba(11,18,32,.96));border-radius:18px;padding:18px;overflow:hidden}
@@ -223,4 +236,5 @@ td:first-child,th:first-child{text-align:left}
   .full-bracket-shell{padding:12px}
   .mobile-round-grid{grid-template-columns:1fr}
   .bracket-app .advance-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .third-ranking-head{align-items:start;flex-direction:column}
 }
