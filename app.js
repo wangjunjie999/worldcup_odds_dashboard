@@ -1,7 +1,7 @@
 
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
-const state = { q:"", handicap:"all", tier:"all", status:"all", sort:"date-desc", compact:false };
+const state = { q:"", handicap:"all", tier:"all", date:"all", sort:"date-desc", compact:false };
 
 function firstAndLast(history=[]){
   if(!history.length) return [null,null];
@@ -218,7 +218,7 @@ function filtered(){
     return (!state.q||text.includes(state.q.toLowerCase()))
       && (state.handicap==="all"||String(m.handicap)===state.handicap)
       && (state.tier==="all"||tier===state.tier)
-      && (state.status==="all"||m.sourceStatus===state.status);
+      && (state.date==="all"||m.date===state.date);
   });
   list.sort((a,b)=>{
     if(state.sort==="date-desc") return b.date.localeCompare(a.date);
@@ -253,10 +253,17 @@ function updateStats(list){
     ["深盘场次",deep],["反向赛果",cold],["让球走盘",pushes]
   ].map(([k,v])=>`<div class="stat"><b>${v}</b><span>${k}</span></div>`).join("");
 }
+function populateDateFilter(){
+  const select = $("#dateFilter");
+  const dates = [...new Set(window.MATCHES.map(m=>m.date).filter(Boolean))].sort((a,b)=>b.localeCompare(a));
+  select.innerHTML = `<option value="all">全部日期</option>${dates.map(date=>`<option value="${date}">${date}</option>`).join("")}`;
+  select.value = state.date;
+}
+populateDateFilter();
 $("#search").addEventListener("input",e=>{state.q=e.target.value.trim();render()});
 $("#handicap").addEventListener("change",e=>{state.handicap=e.target.value;render()});
 $("#tier").addEventListener("change",e=>{state.tier=e.target.value;render()});
-$("#status").addEventListener("change",e=>{state.status=e.target.value;render()});
+$("#dateFilter").addEventListener("change",e=>{state.date=e.target.value;render()});
 $("#sort").addEventListener("change",e=>{state.sort=e.target.value;render()});
 $("#compactBtn").addEventListener("click",()=>{state.compact=!state.compact;$("#compactBtn").textContent=state.compact?"展开模式":"紧凑模式";render()});
 $("#content").addEventListener("click",e=>{
