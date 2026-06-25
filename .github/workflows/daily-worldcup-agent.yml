@@ -3,7 +3,8 @@ name: Daily World Cup Agent
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 16 * * *"
+    # 15:30 Asia/Shanghai
+    - cron: "30 7 * * *"
 
 permissions:
   contents: write
@@ -25,6 +26,5 @@ jobs:
 
       - name: Print agent command
         run: |
-          echo "Trae SOLO / external agent command is stored in automation/TRAE_SOLO_DAILY_COMMAND.md"
-          echo "This workflow validates committed data. Connect the command to a Trae/Codex cloud runner before enabling unattended scraping."
-
+          echo "Daily 15:30 Asia/Shanghai agent command is stored in automation/TRAE_SOLO_DAILY_COMMAND.md"
+          echo "This workflow validates committed data. Browser scraping should run in Trae SOLO / Codex local automation or another connected runner."

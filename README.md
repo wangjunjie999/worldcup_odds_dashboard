@@ -22,7 +22,7 @@ worldcup_odds_dashboard/
 - 按让球 `-3 / -2 / -1 / +1 / +2` 自动分组。
 - 按热门赔率分为极热、强热、中热、均衡、高赔五档，并使用不同颜色。
 - 搜索球队、比赛编号或日期。
-- 筛选让球、档位、数据状态。
+- 筛选让球、档位，并支持按多个日期叠加筛选。
 - 显示普通胜平负及让球胜平负的初盘、终盘、升降幅度。
 - 曲线显示该市场终盘最低赔率项的历史走势。
 - 卡片总趋势显示该市场初始最低赔率项的初始奖金到结算奖金。
@@ -99,11 +99,19 @@ https://wangjunjie999.github.io/worldcup_odds_dashboard/
 
 ## 自动更新
 
-智能体每日更新命令保存在：
+智能体每日 15:30 更新命令保存在：
 
 ```text
 automation/TRAE_SOLO_DAILY_COMMAND.md
 ```
+
+每日任务只处理 sporttery.cn 中项目尚未录入的世界杯已完赛比赛，原始截图保存到：
+
+```text
+E:\0\历史\YYYY-MM-DD\
+```
+
+小组赛期间只补比赛数据；晋级页的小组积分榜和第三名排名会根据 `window.MATCHES` 自动计算。小组赛结束后，自动任务切换为维护真实 32 强落位和淘汰赛晋级图。
 
 更新完成后必须运行：
 
@@ -111,6 +119,6 @@ automation/TRAE_SOLO_DAILY_COMMAND.md
 node scripts/validate-data.js
 ```
 
-校验通过后再提交并推送 GitHub。仓库包含 `.github/workflows/daily-worldcup-agent.yml`，当前用于每日校验和保留云端任务入口；真正无人值守抓取需要把 Trae SOLO 或其他云端代理接入该命令。
+校验通过后再提交并推送 GitHub。仓库包含 `.github/workflows/daily-worldcup-agent.yml`，按北京时间 15:30 对应的 UTC 时间保留每日校验入口；真正抓取由 Trae SOLO、Codex 本地自动任务或其他带浏览器能力的代理执行。
 
 当前 GitHub Pages 由 `gh-pages` 分支发布；`.github/workflows/publish-pages.yml` 会在 `main` 更新后自动校验并同步到 `gh-pages`。
