@@ -1,7 +1,7 @@
 
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
-const state = { q:"", handicap:"all", tier:"all", date:"all", sort:"date-desc", compact:false };
+const state = { q:"", handicap:"all", tier:"all", dates:new Set(), sort:"date-desc", compact:false };
 
 function firstAndLast(history=[]){
   if(!history.length) return [null,null];
@@ -218,7 +218,7 @@ function filtered(){
     return (!state.q||text.includes(state.q.toLowerCase()))
       && (state.handicap==="all"||String(m.handicap)===state.handicap)
       && (state.tier==="all"||tier===state.tier)
-      && (state.date==="all"||m.date===state.date);
+      && (!state.dates.size||state.dates.has(m.date));
   });
   list.sort((a,b)=>{
     if(state.sort==="date-desc") return b.date.localeCompare(a.date);
@@ -254,16 +254,30 @@ function updateStats(list){
   ].map(([k,v])=>`<div class="stat"><b>${v}</b><span>${k}</span></div>`).join("");
 }
 function populateDateFilter(){
-  const select = $("#dateFilter");
+  const box = $("#dateFilter");
   const dates = [...new Set(window.MATCHES.map(m=>m.date).filter(Boolean))].sort((a,b)=>b.localeCompare(a));
-  select.innerHTML = `<option value="all">全部日期</option>${dates.map(date=>`<option value="${date}">${date}</option>`).join("")}`;
-  select.value = state.date;
+  box.innerHTML = `<button type="button" class="date-chip ${state.dates.size ? "" : "active"}" data-date="all">全部日期</button>${
+    dates.map(date => `<button type="button" class="date-chip ${state.dates.has(date) ? "active" : ""}" data-date="${date}">${date}</button>`).join("")
+  }`;
 }
 populateDateFilter();
 $("#search").addEventListener("input",e=>{state.q=e.target.value.trim();render()});
 $("#handicap").addEventListener("change",e=>{state.handicap=e.target.value;render()});
 $("#tier").addEventListener("change",e=>{state.tier=e.target.value;render()});
-$("#dateFilter").addEventListener("change",e=>{state.date=e.target.value;render()});
+$("#dateFilter").addEventListener("click",e=>{
+  const chip = e.target.closest(".date-chip");
+  if(!chip) return;
+  const date = chip.dataset.date;
+  if(date==="all"){
+    state.dates.clear();
+  }else if(state.dates.has(date)){
+    state.dates.delete(date);
+  }else{
+    state.dates.add(date);
+  }
+  populateDateFilter();
+  render();
+});
 $("#sort").addEventListener("change",e=>{state.sort=e.target.value;render()});
 $("#compactBtn").addEventListener("click",()=>{state.compact=!state.compact;$("#compactBtn").textContent=state.compact?"展开模式":"紧凑模式";render()});
 $("#content").addEventListener("click",e=>{
