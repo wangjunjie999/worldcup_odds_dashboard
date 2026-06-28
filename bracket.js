@@ -11,8 +11,10 @@ const ROUND_LABELS = {
 
 const BRACKET_DIMENSIONS = {
   colWidth: 190,
+  minColWidth: 154,
   colGap: 18,
-  rowHeight: 66,
+  rowHeight: 78,
+  minRowHeight: 74,
   cols: 9,
   rows: 16
 };
@@ -56,6 +58,10 @@ function meta(team){
 
 function bracketMatches(){
   return window.KNOCKOUT_BRACKET?.matches || [];
+}
+
+function bracketMatchByCode(code){
+  return bracketMatches().find(match => String(match.code) === String(code));
 }
 
 function emptyStanding(team, group, seed){
@@ -177,12 +183,83 @@ function teamLine(team, slot=""){
   </div>`;
 }
 
-function resolveSlot(slot, model){
+function uniqueRows(rows=[]){
+  const seen = new Set();
+  return rows.filter(row => {
+    if(!row?.team || seen.has(row.team)) return false;
+    seen.add(row.team);
+    return true;
+  });
+}
+
+function resolvedRows(resolved){
+  if(!resolved) return [];
+  if(resolved.type === "team" && resolved.row) return [resolved.row];
+  if(resolved.type === "third") return uniqueRows(resolved.active);
+  if(resolved.type === "progress") return uniqueRows(resolved.possibleRows);
+  return [];
+}
+
+function sourceSummary(resolved){
+  if(!resolved) return "待定";
+  if(resolved.type === "team" && resolved.row) return resolved.row.team;
+  if(resolved.type === "third"){
+    const activeCount = resolved.active.length || resolved.candidates.length;
+    return `${activeCount}队候选`;
+  }
+  if(resolved.type === "progress") return resolved.label;
+  return resolved.label || resolved.slot || "待定";
+}
+
+function resolveAdvanceSlot(slot, model, refType, code, trail){
+  const sourceMatch = bracketMatchByCode(code);
+  const label = `${refType === "winner" ? "胜者" : "负者"} M${code}`;
+  if(!sourceMatch || trail.has(String(code))) return { type: "placeholder", slot, label };
+
+  const explicitTeam = sourceMatch[refType]
+    || sourceMatch[`${refType}Team`]
+    || sourceMatch[`${refType}Name`];
+  if(explicitTeam){
+    return {
+      type: "team",
+      slot,
+      row: { team: explicitTeam, fifaRank: meta(explicitTeam).fifaRank },
+      label: `${slot} ${explicitTeam}`,
+      source: "knockout"
+    };
+  }
+
+  const nextTrail = new Set(trail);
+  nextTrail.add(String(code));
+  const home = resolveSlot(sourceMatch.home, model, nextTrail);
+  const away = resolveSlot(sourceMatch.away, model, nextTrail);
+  return {
+    type: "progress",
+    slot,
+    label,
+    sourceMatch,
+    home,
+    away,
+    possibleRows: uniqueRows([...resolvedRows(home), ...resolvedRows(away)])
+  };
+}
+
+function resolveSlot(slot, model, trail = new Set()){
+  const knockoutTeam = (window.TEAM_META || {})[slot];
+  if(knockoutTeam){
+    return {
+      type: "team",
+      slot,
+      row: { team: slot, fifaRank: knockoutTeam.fifaRank },
+      label: slot,
+      source: "knockout"
+    };
+  }
   const place = /^([A-L])([123])$/.exec(slot);
   if(place){
     const group = model.groups.find(item => item.id === place[1]);
     const row = group?.rows[Number(place[2])-1];
-    return { type: "team", slot, row, label: row ? `${slot} ${row.team}` : slot };
+    return { type: "team", slot, row, label: row ? `${slot} ${row.team}` : slot, source: "group" };
   }
   const third = /^3(.+)$/.exec(slot);
   if(third){
@@ -190,28 +267,41 @@ function resolveSlot(slot, model){
     const active = model.thirdRows.filter(row =>
       model.bestThirdKeys.has(`${row.group}-${row.team}`) && candidates.includes(row.group)
     );
+    if(active.length === 1){
+      return {
+        type: "team",
+        slot,
+        row: active[0],
+        label: `${slot} ${active[0].team}`,
+        source: "third"
+      };
+    }
     return { type: "third", slot, candidates, active, label: slot };
   }
   const winner = /^W(\d+)$/.exec(slot);
-  if(winner) return { type: "placeholder", slot, label: `胜者 M${winner[1]}` };
+  if(winner) return resolveAdvanceSlot(slot, model, "winner", winner[1], trail);
   const loser = /^L(\d+)$/.exec(slot);
-  if(loser) return { type: "placeholder", slot, label: `负者 M${loser[1]}` };
+  if(loser) return resolveAdvanceSlot(slot, model, "loser", loser[1], trail);
   return { type: "placeholder", slot, label: slot };
 }
 
-function competitor(slot, model){
+function competitor(slot, model, slotLabel = slot){
   const resolved = resolveSlot(slot, model);
   if(resolved.type === "team" && resolved.row){
+    const slotText = resolved.source === "third"
+      ? `${slotLabel} · 最佳第三`
+      : (slotLabel && slotLabel !== resolved.row.team ? slotLabel : "");
     return `<div class="competitor resolved">
-      <small>${esc(resolved.slot)}</small>
-      ${teamLine(resolved.row.team, resolved.slot)}
+      <small>${esc(slotLabel)}</small>
+      ${teamLine(resolved.row.team, slotText)}
     </div>`;
   }
   if(resolved.type === "third"){
+    const activeCount = resolved.active.length || resolved.candidates.length;
     const active = resolved.active.length ? resolved.active : [];
     return `<div class="competitor third-slot">
       <small>${esc(resolved.slot)}</small>
-      <div class="third-title">候选组 ${esc(resolved.candidates.join("/"))}</div>
+      <div class="third-title">候选组 ${esc(resolved.candidates.join("/"))} · 当前 ${activeCount} 队</div>
       <div class="third-candidates compact">
         ${active.length ? active.map(row => {
           const info = meta(row.team);
@@ -220,18 +310,52 @@ function competitor(slot, model){
       </div>
     </div>`;
   }
+  if(resolved.type === "progress"){
+    const summary = `${sourceSummary(resolved.home)} vs ${sourceSummary(resolved.away)}`;
+    const pathCount = resolved.possibleRows.length;
+    return `<div class="competitor progress-slot">
+      <small>${esc(resolved.slot)}</small>
+      <b>${esc(resolved.label)}</b>
+      <span>${esc(summary)}</span>
+      <em>${pathCount ? `最多 ${pathCount} 队路径` : "等待上一轮结果"}</em>
+    </div>`;
+  }
   return `<div class="competitor placeholder">
     <small>${esc(resolved.slot)}</small>
     <b>${esc(resolved.label)}</b>
   </div>`;
 }
 
+function matchStatus(match, home, away){
+  const score = Array.isArray(match.score) && match.score.length === 2 ? `${match.score[0]}:${match.score[1]}` : "";
+  if(score) return { key: "played", label: "已结束", note: score };
+  if(home.type === "team" && away.type === "team") return { key: "locked", label: "对阵锁定", note: `${home.row.team} vs ${away.row.team}` };
+  if(home.type === "third" || away.type === "third"){
+    const counts = [home, away]
+      .filter(item => item.type === "third")
+      .map(item => item.active.length || item.candidates.length);
+    return { key: "third", label: "待第三名", note: `当前 ${counts.join(" / ")} 队候选` };
+  }
+  if(home.type === "progress" || away.type === "progress"){
+    const pathCount = uniqueRows([...resolvedRows(home), ...resolvedRows(away)]).length;
+    return { key: "path", label: "待上一轮", note: pathCount ? `最多 ${pathCount} 队路径` : "等待结果" };
+  }
+  return { key: "pending", label: "待补全", note: "信息待补全" };
+}
+
 function matchCard(match, model){
-  return `<article class="bracket-match ${esc(match.round)}">
-    <div class="match-code">M${esc(match.code)}</div>
-    ${competitor(match.home, model)}
+  const home = resolveSlot(match.home, model);
+  const away = resolveSlot(match.away, model);
+  const status = matchStatus(match, home, away);
+  return `<article class="bracket-match ${esc(match.round)} state-${esc(status.key)}">
+    <div class="match-head">
+      <div class="match-code">M${esc(match.code)}</div>
+      <div class="match-state state-${esc(status.key)}">${esc(status.label)}</div>
+    </div>
+    ${competitor(match.home, model, match.homeSlot || match.home)}
     <div class="versus">vs</div>
-    ${competitor(match.away, model)}
+    ${competitor(match.away, model, match.awaySlot || match.away)}
+    <div class="match-note">${esc(status.note)}</div>
   </article>`;
 }
 
@@ -257,9 +381,10 @@ function bracketMetrics(){
   const styles = getComputedStyle(shell);
   const horizontalPadding = parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight);
   const availableWidth = Math.max(0, shell.clientWidth - horizontalPadding);
-  const colGap = clamp(Math.round(availableWidth * 0.01), 8, BRACKET_DIMENSIONS.colGap);
-  const colWidth = Math.max(72, (availableWidth - (BRACKET_DIMENSIONS.cols - 1) * colGap) / BRACKET_DIMENSIONS.cols);
-  const rowHeight = clamp(Math.round(colWidth * 0.48), 58, BRACKET_DIMENSIONS.rowHeight);
+  const colGap = clamp(Math.round(availableWidth * 0.01), 12, BRACKET_DIMENSIONS.colGap);
+  const fittedColWidth = (availableWidth - (BRACKET_DIMENSIONS.cols - 1) * colGap) / BRACKET_DIMENSIONS.cols;
+  const colWidth = clamp(fittedColWidth, BRACKET_DIMENSIONS.minColWidth, BRACKET_DIMENSIONS.colWidth);
+  const rowHeight = clamp(Math.round(colWidth * 0.48), BRACKET_DIMENSIONS.minRowHeight, BRACKET_DIMENSIONS.rowHeight);
   const width = colWidth * BRACKET_DIMENSIONS.cols + colGap * (BRACKET_DIMENSIONS.cols - 1);
   const height = BRACKET_DIMENSIONS.rows * rowHeight;
   return { ...BRACKET_DIMENSIONS, colWidth, colGap, rowHeight, width, height };
@@ -329,8 +454,8 @@ function bracketNode(match, model){
 function renderDesktopBracket(model){
   const metrics = bracketMetrics();
   const sortedMatches = [...bracketMatches()].sort((a,b) => Number(a.code) - Number(b.code));
-  const compactClass = metrics.colWidth < 126 ? " compact-tree" : "";
-  const gridStyle = `--bracket-width:${bracketWidth(metrics)}px;--bracket-height:${bracketHeight(metrics)}px;--bracket-col-width:${metrics.colWidth}px;--bracket-gap:${metrics.colGap}px;--bracket-row-height:${metrics.rowHeight}px;--bracket-node-height:${Math.max(104, metrics.rowHeight * 2 - 4)}px`;
+  const compactClass = metrics.colWidth < BRACKET_DIMENSIONS.minColWidth ? " compact-tree" : "";
+  const gridStyle = `--bracket-width:${bracketWidth(metrics)}px;--bracket-height:${bracketHeight(metrics)}px;--bracket-col-width:${metrics.colWidth}px;--bracket-gap:${metrics.colGap}px;--bracket-row-height:${metrics.rowHeight}px;--bracket-node-height:${Math.max(132, metrics.rowHeight * 2 - 6)}px`;
   return `<div class="full-bracket${compactClass}" style="${gridStyle}">
     <div class="bracket-round-labels">
       ${ROUND_HEADINGS.map(label => `<span>${esc(label)}</span>`).join("")}
@@ -374,11 +499,29 @@ function renderMobileBracket(model){
   </div>`;
 }
 
+function buildBracketSnapshot(model){
+  const snapshot = {
+    lockedR32: 0,
+    thirdPending: 0,
+    playedGroupMatches: model.groups.reduce((sum, group) => sum + group.matchCount, 0)
+  };
+  bracketMatches()
+    .filter(match => match.round === "r32")
+    .forEach(match => {
+      const home = resolveSlot(match.home, model);
+      const away = resolveSlot(match.away, model);
+      if(home.type === "team" && away.type === "team") snapshot.lockedR32++;
+      if(home.type === "third" || away.type === "third") snapshot.thirdPending++;
+    });
+  return snapshot;
+}
+
 function renderBracket(model){
   const source = window.KNOCKOUT_BRACKET || {};
+  const snapshot = buildBracketSnapshot(model);
   $("#fullBracket").innerHTML = `<div class="board-title">
     <h2>完整晋级图</h2>
-    <span>${esc(source.rankSource)} · ${esc(source.rankDate)}</span>
+    <span>${esc(source.rankSource)} · ${esc(source.rankDate)} · 32强已锁定 ${snapshot.lockedR32}/16</span>
   </div>
   ${isMobileBracket() ? renderMobileBracket(model) : renderDesktopBracket(model)}`;
 }
@@ -386,12 +529,14 @@ function renderBracket(model){
 function renderSummary(model){
   const direct = model.groups.flatMap(group => group.rows.slice(0,2));
   const third = model.thirdRows.slice(0,8);
-  const played = model.groups.reduce((sum, group) => sum + group.matchCount, 0);
+  const snapshot = buildBracketSnapshot(model);
+  const groupTotal = model.groups.length * 6;
   $("#bracketSummary").innerHTML = [
-    ["小组前二", direct.length],
+    ["小组赛完赛", `${snapshot.playedGroupMatches}/${groupTotal}`],
+    ["直通席位", direct.length],
+    ["32强锁定", `${snapshot.lockedR32}/16`],
     ["第三名晋级区", third.length],
-    ["已完赛", played],
-    ["排名批次", window.KNOCKOUT_BRACKET?.rankDate || "—"]
+    ["待第三名比较", snapshot.thirdPending]
   ].map(([label,value]) => `<div><b>${esc(value)}</b><span>${esc(label)}</span></div>`).join("");
 }
 
