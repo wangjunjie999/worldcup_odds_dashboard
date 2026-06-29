@@ -9955,6 +9955,215 @@ window.MATCHES = [
       ]
     },
     "manualNote": "普通胜平负暂无数据； 受让2球让平由3.85升至3.90，最终打出(+2)平。"
+  },
+  {
+    "id": "2026-06-29-south-africa-canada",
+    "date": "2026-06-29",
+    "code": "周日073 世界杯>",
+    "teamA": "南非",
+    "teamB": "加拿大",
+    "rankA": 60,
+    "rankB": 30,
+    "score": [
+      0,
+      1
+    ],
+    "handicap": 1,
+    "host": true,
+    "sourceStatus": "已录入",
+    "sourceImage": "assets/screenshots/2026-06-29/south-africa-canada.png",
+    "normal": {
+      "history": [
+        {
+          "time": "06-26 09:29:30",
+          "win": 4.7,
+          "draw": 3.18,
+          "lose": 1.66
+        },
+        {
+          "time": "06-27 17:32:03",
+          "win": 4.8,
+          "draw": 3.25,
+          "lose": 1.63
+        },
+        {
+          "time": "06-28 10:23:25",
+          "win": 5.16,
+          "draw": 3.3,
+          "lose": 1.58
+        },
+        {
+          "time": "06-28 11:05:10",
+          "win": 5.65,
+          "draw": 3.4,
+          "lose": 1.52
+        },
+        {
+          "time": "06-28 11:53:22",
+          "win": 5.8,
+          "draw": 3.45,
+          "lose": 1.5
+        },
+        {
+          "time": "06-28 12:17:21",
+          "win": 5.95,
+          "draw": 3.5,
+          "lose": 1.48
+        },
+        {
+          "time": "06-28 12:22:07",
+          "win": 5.8,
+          "draw": 3.5,
+          "lose": 1.49
+        },
+        {
+          "time": "06-28 12:59:41",
+          "win": 5.65,
+          "draw": 3.5,
+          "lose": 1.5
+        },
+        {
+          "time": "06-28 15:01:00",
+          "win": 5.7,
+          "draw": 3.6,
+          "lose": 1.48
+        },
+        {
+          "time": "06-28 16:18:40",
+          "win": 5.55,
+          "draw": 3.55,
+          "lose": 1.5
+        },
+        {
+          "time": "06-28 20:09:51",
+          "win": 5.65,
+          "draw": 3.5,
+          "lose": 1.5
+        },
+        {
+          "time": "06-28 21:37:33",
+          "win": 5.8,
+          "draw": 3.45,
+          "lose": 1.5
+        }
+      ]
+    },
+    "handicapOdds": {
+      "history": [
+        {
+          "time": "06-26 09:29:30",
+          "win": 1.95,
+          "draw": 3.3,
+          "lose": 3.2
+        },
+        {
+          "time": "06-27 17:32:09",
+          "win": 2,
+          "draw": 3.3,
+          "lose": 3.07
+        },
+        {
+          "time": "06-28 10:23:31",
+          "win": 2.08,
+          "draw": 3.3,
+          "lose": 2.9
+        },
+        {
+          "time": "06-28 11:05:19",
+          "win": 2.16,
+          "draw": 3.23,
+          "lose": 2.8
+        },
+        {
+          "time": "06-28 11:53:28",
+          "win": 2.19,
+          "draw": 3.23,
+          "lose": 2.75
+        },
+        {
+          "time": "06-28 12:17:27",
+          "win": 2.23,
+          "draw": 3.2,
+          "lose": 2.71
+        },
+        {
+          "time": "06-28 15:00:52",
+          "win": 2.28,
+          "draw": 3.18,
+          "lose": 2.66
+        },
+        {
+          "time": "06-28 15:33:20",
+          "win": 2.28,
+          "draw": 3.12,
+          "lose": 2.7
+        },
+        {
+          "time": "06-28 16:18:55",
+          "win": 2.23,
+          "draw": 3.12,
+          "lose": 2.78
+        },
+        {
+          "time": "06-28 18:28:02",
+          "win": 2.25,
+          "draw": 3.05,
+          "lose": 2.8
+        },
+        {
+          "time": "06-28 19:37:03",
+          "win": 2.25,
+          "draw": 3,
+          "lose": 2.84
+        }
+      ]
+    },
+    "scoreOdds": {
+      "label": "0:1",
+      "history": [
+        {
+          "time": "06-26 09:29:30",
+          "odd": 5.4
+        },
+        {
+          "time": "06-28 10:24:07",
+          "odd": 5.4
+        },
+        {
+          "time": "06-28 11:36:53",
+          "odd": 5.4
+        },
+        {
+          "time": "06-28 12:02:28",
+          "odd": 5.4
+        },
+        {
+          "time": "06-28 12:40:21",
+          "odd": 5.4
+        },
+        {
+          "time": "06-28 13:43:18",
+          "odd": 5.55
+        },
+        {
+          "time": "06-28 15:49:11",
+          "odd": 5.55
+        },
+        {
+          "time": "06-28 17:23:07",
+          "odd": 5.7
+        },
+        {
+          "time": "06-28 18:23:07",
+          "odd": 5.8
+        },
+        {
+          "time": "06-28 18:44:42",
+          "odd": 5.9
+        }
+      ]
+    },
+    "manualNote": "普通盘客胜由1.66降至1.50，支持持续增强；受让一球盘让负由3.20降至2.84，最终0:1打出让平。"
   }
 ];
 
@@ -10028,7 +10237,7 @@ window.KNOCKOUT_BRACKET = {
   rankSource: "FIFA/Coca-Cola Men's World Ranking",
   rankDate: "2026-06-11",
   matches: [
-    { code: "73", round: "r32", side: "left", home: "南非", away: "加拿大", homeSlot: "A2", awaySlot: "B2" },
+    { code: "73", round: "r32", side: "left", home: "南非", away: "加拿大", homeSlot: "A2", awaySlot: "B2", score: [0, 1], winner: "加拿大", loser: "南非" },
     { code: "74", round: "r32", side: "left", home: "德国", away: "巴拉圭", homeSlot: "E1", awaySlot: "D3" },
     { code: "75", round: "r32", side: "left", home: "荷兰", away: "摩洛哥", homeSlot: "F1", awaySlot: "C2" },
     { code: "76", round: "r32", side: "left", home: "巴西", away: "日本", homeSlot: "C1", awaySlot: "F2" },
