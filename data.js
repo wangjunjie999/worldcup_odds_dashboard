@@ -10739,6 +10739,513 @@ window.MATCHES = [
       ]
     },
     "manualNote": "普通平赔由3.07降至2.92，平局防范增强；让一球负由1.70降至1.63，最终1:1打出(-1)负，点球2:3出局。"
+  },
+  {
+    "id": "2026-07-01-ivory-coast-norway",
+    "date": "2026-07-01",
+    "code": "??077 ???>",
+    "teamA": "科特迪瓦",
+    "teamB": "挪威",
+    "rankA": 33,
+    "rankB": 31,
+    "score": [
+      1,
+      2
+    ],
+    "handicap": 1,
+    "host": false,
+    "sourceStatus": "???",
+    "sourceImage": "assets/screenshots/2026-07-01/ivory-coast-norway.png",
+    "normal": {
+      "history": [
+        {
+          "time": "06-28 09:40:32",
+          "win": 3.65,
+          "draw": 3.27,
+          "lose": 1.82
+        },
+        {
+          "time": "06-28 19:57:06",
+          "win": 3.7,
+          "draw": 3.33,
+          "lose": 1.79
+        },
+        {
+          "time": "06-29 13:03:35",
+          "win": 3.77,
+          "draw": 3.35,
+          "lose": 1.77
+        },
+        {
+          "time": "06-30 09:59:51",
+          "win": 3.68,
+          "draw": 3.38,
+          "lose": 1.78
+        },
+        {
+          "time": "06-30 11:01:22",
+          "win": 3.63,
+          "draw": 3.35,
+          "lose": 1.8
+        },
+        {
+          "time": "06-30 11:06:49",
+          "win": 3.55,
+          "draw": 3.35,
+          "lose": 1.82
+        },
+        {
+          "time": "06-30 14:29:38",
+          "win": 3.6,
+          "draw": 3.38,
+          "lose": 1.8
+        }
+      ]
+    },
+    "handicapOdds": {
+      "history": [
+        {
+          "time": "06-28 09:40:32",
+          "win": 1.76,
+          "draw": 3.7,
+          "lose": 3.44
+        },
+        {
+          "time": "06-28 19:57:14",
+          "win": 1.79,
+          "draw": 3.7,
+          "lose": 3.33
+        },
+        {
+          "time": "06-29 13:03:40",
+          "win": 1.83,
+          "draw": 3.63,
+          "lose": 3.25
+        },
+        {
+          "time": "06-30 09:59:56",
+          "win": 1.82,
+          "draw": 3.63,
+          "lose": 3.28
+        },
+        {
+          "time": "06-30 11:01:30",
+          "win": 1.8,
+          "draw": 3.63,
+          "lose": 3.35
+        },
+        {
+          "time": "06-30 11:06:55",
+          "win": 1.78,
+          "draw": 3.65,
+          "lose": 3.4
+        },
+        {
+          "time": "06-30 13:30:51",
+          "win": 1.78,
+          "draw": 3.55,
+          "lose": 3.5
+        },
+        {
+          "time": "06-30 16:13:32",
+          "win": 1.78,
+          "draw": 3.45,
+          "lose": 3.6
+        }
+      ]
+    },
+    "scoreOdds": {
+      "label": "1:2",
+      "history": [
+        {
+          "time": "06-28 09:40:32",
+          "odd": 6.75
+        },
+        {
+          "time": "06-29 13:01:29",
+          "odd": 6.25
+        },
+        {
+          "time": "06-29 15:02:33",
+          "odd": 6.25
+        },
+        {
+          "time": "06-30 10:00:28",
+          "odd": 6
+        },
+        {
+          "time": "06-30 12:21:29",
+          "odd": 5.8
+        },
+        {
+          "time": "06-30 12:39:05",
+          "odd": 5.5
+        },
+        {
+          "time": "06-30 14:06:03",
+          "odd": 5.5
+        },
+        {
+          "time": "06-30 15:37:03",
+          "odd": 5.5
+        },
+        {
+          "time": "06-30 17:14:52",
+          "odd": 5
+        },
+        {
+          "time": "06-30 21:00:02",
+          "odd": 5
+        },
+        {
+          "time": "06-30 21:31:56",
+          "odd": 5
+        }
+      ]
+    },
+    "manualNote": "?????1.82??1.80????????????????3.70??3.45???1:2??(+1)??"
+  },
+  {
+    "id": "2026-07-01-france-sweden",
+    "date": "2026-07-01",
+    "code": "??078 ???>",
+    "teamA": "法国",
+    "teamB": "瑞典",
+    "rankA": 3,
+    "rankB": 38,
+    "score": [
+      3,
+      0
+    ],
+    "handicap": -1,
+    "host": false,
+    "sourceStatus": "???",
+    "sourceImage": "assets/screenshots/2026-07-01/france-sweden.png",
+    "normal": {
+      "history": [
+        {
+          "time": "06-28 09:40:32",
+          "win": 1.26,
+          "draw": 4.9,
+          "lose": 7.6
+        },
+        {
+          "time": "06-28 13:41:06",
+          "win": 1.22,
+          "draw": 5.2,
+          "lose": 8.5
+        },
+        {
+          "time": "06-28 16:01:10",
+          "win": 1.2,
+          "draw": 5.4,
+          "lose": 9
+        },
+        {
+          "time": "06-28 20:16:28",
+          "win": 1.18,
+          "draw": 5.5,
+          "lose": 10
+        },
+        {
+          "time": "06-29 10:36:27",
+          "win": 1.17,
+          "draw": 5.6,
+          "lose": 10.5
+        },
+        {
+          "time": "06-29 15:46:15",
+          "win": 1.16,
+          "draw": 5.8,
+          "lose": 10.5
+        }
+      ]
+    },
+    "handicapOdds": {
+      "history": [
+        {
+          "time": "06-28 09:40:32",
+          "win": 1.86,
+          "draw": 3.75,
+          "lose": 3.08
+        },
+        {
+          "time": "06-28 13:41:13",
+          "win": 1.77,
+          "draw": 3.75,
+          "lose": 3.36
+        },
+        {
+          "time": "06-28 16:01:10",
+          "win": 1.71,
+          "draw": 3.8,
+          "lose": 3.55
+        },
+        {
+          "time": "06-28 20:16:22",
+          "win": 1.67,
+          "draw": 3.85,
+          "lose": 3.7
+        },
+        {
+          "time": "06-29 10:36:32",
+          "win": 1.63,
+          "draw": 3.9,
+          "lose": 3.85
+        },
+        {
+          "time": "06-29 15:46:05",
+          "win": 1.6,
+          "draw": 3.95,
+          "lose": 3.98
+        }
+      ]
+    },
+    "scoreOdds": {
+      "label": "3:0",
+      "history": [
+        {
+          "time": "06-28 09:40:32",
+          "odd": 8.5
+        },
+        {
+          "time": "06-28 16:01:10",
+          "odd": 8.5
+        },
+        {
+          "time": "06-29 10:37:24",
+          "odd": 8.25
+        },
+        {
+          "time": "06-29 16:35:24",
+          "odd": 8
+        },
+        {
+          "time": "06-30 10:26:22",
+          "odd": 8
+        },
+        {
+          "time": "06-30 11:33:40",
+          "odd": 8
+        },
+        {
+          "time": "06-30 12:25:07",
+          "odd": 8
+        },
+        {
+          "time": "06-30 12:48:58",
+          "odd": 8
+        },
+        {
+          "time": "06-30 13:43:42",
+          "odd": 8
+        },
+        {
+          "time": "06-30 14:35:38",
+          "odd": 8
+        },
+        {
+          "time": "06-30 15:58:22",
+          "odd": 8
+        },
+        {
+          "time": "06-30 17:14:25",
+          "odd": 7.25
+        },
+        {
+          "time": "06-30 18:31:39",
+          "odd": 7.25
+        },
+        {
+          "time": "06-30 20:18:16",
+          "odd": 7
+        }
+      ]
+    },
+    "manualNote": "?????1.26??1.16?????????????1.86??1.60???3:0?????"
+  },
+  {
+    "id": "2026-07-01-mexico-ecuador",
+    "date": "2026-07-01",
+    "code": "??079 ???>",
+    "teamA": "墨西哥",
+    "teamB": "厄瓜多尔",
+    "rankA": 14,
+    "rankB": 23,
+    "score": [
+      2,
+      0
+    ],
+    "handicap": -1,
+    "host": true,
+    "sourceStatus": "???",
+    "sourceImage": "assets/screenshots/2026-07-01/mexico-ecuador.png",
+    "normal": {
+      "history": [
+        {
+          "time": "06-29 09:15:40",
+          "win": 2,
+          "draw": 2.7,
+          "lose": 3.86
+        },
+        {
+          "time": "06-29 11:12:34",
+          "win": 2.04,
+          "draw": 2.7,
+          "lose": 3.72
+        },
+        {
+          "time": "06-29 14:39:47",
+          "win": 2,
+          "draw": 2.7,
+          "lose": 3.86
+        },
+        {
+          "time": "06-30 11:09:16",
+          "win": 1.97,
+          "draw": 2.7,
+          "lose": 3.98
+        },
+        {
+          "time": "06-30 12:58:23",
+          "win": 1.94,
+          "draw": 2.7,
+          "lose": 4.1
+        },
+        {
+          "time": "06-30 17:09:18",
+          "win": 1.91,
+          "draw": 2.79,
+          "lose": 4.05
+        },
+        {
+          "time": "06-30 19:48:00",
+          "win": 1.95,
+          "draw": 2.73,
+          "lose": 4
+        },
+        {
+          "time": "06-30 20:22:50",
+          "win": 1.98,
+          "draw": 2.67,
+          "lose": 4
+        },
+        {
+          "time": "06-30 20:39:08",
+          "win": 2.02,
+          "draw": 2.6,
+          "lose": 4
+        }
+      ]
+    },
+    "handicapOdds": {
+      "history": [
+        {
+          "time": "06-29 09:15:40",
+          "win": 4.5,
+          "draw": 3.4,
+          "lose": 1.63
+        },
+        {
+          "time": "06-29 11:12:42",
+          "win": 4.68,
+          "draw": 3.4,
+          "lose": 1.61
+        },
+        {
+          "time": "06-29 14:40:02",
+          "win": 4.5,
+          "draw": 3.4,
+          "lose": 1.63
+        },
+        {
+          "time": "06-30 11:09:33",
+          "win": 4.5,
+          "draw": 3.32,
+          "lose": 1.65
+        },
+        {
+          "time": "06-30 12:58:33",
+          "win": 4.45,
+          "draw": 3.27,
+          "lose": 1.67
+        },
+        {
+          "time": "06-30 17:09:03",
+          "win": 4.45,
+          "draw": 3.16,
+          "lose": 1.7
+        },
+        {
+          "time": "06-30 19:47:52",
+          "win": 4.7,
+          "draw": 3.15,
+          "lose": 1.67
+        },
+        {
+          "time": "06-30 20:23:00",
+          "win": 4.95,
+          "draw": 3.15,
+          "lose": 1.64
+        },
+        {
+          "time": "06-30 20:39:16",
+          "win": 5.15,
+          "draw": 3.15,
+          "lose": 1.62
+        }
+      ]
+    },
+    "scoreOdds": {
+      "label": "2:0",
+      "history": [
+        {
+          "time": "06-29 09:15:40",
+          "odd": 7.5
+        },
+        {
+          "time": "06-30 10:29:29",
+          "odd": 7.5
+        },
+        {
+          "time": "06-30 11:25:51",
+          "odd": 7.5
+        },
+        {
+          "time": "06-30 12:06:01",
+          "odd": 7.7
+        },
+        {
+          "time": "06-30 12:23:24",
+          "odd": 7.7
+        },
+        {
+          "time": "06-30 13:06:50",
+          "odd": 7.7
+        },
+        {
+          "time": "06-30 13:36:22",
+          "odd": 7.7
+        },
+        {
+          "time": "06-30 15:14:01",
+          "odd": 7.7
+        },
+        {
+          "time": "06-30 17:09:54",
+          "odd": 8.5
+        },
+        {
+          "time": "06-30 19:39:52",
+          "odd": 9
+        },
+        {
+          "time": "06-30 20:28:47",
+          "odd": 9
+        }
+      ]
+    },
+    "manualNote": "???????????????2.70??2.60???????????2:0??????????4.50??5.15????????"
   }
 ];
 
@@ -10809,40 +11316,306 @@ window.TEAM_META = {
 };
 
 window.KNOCKOUT_BRACKET = {
-  rankSource: "FIFA/Coca-Cola Men's World Ranking",
-  rankDate: "2026-06-11",
-  matches: [
-    { code: "73", round: "r32", side: "left", home: "南非", away: "加拿大", homeSlot: "A2", awaySlot: "B2", score: [0, 1], winner: "加拿大", loser: "南非" },
-    { code: "74", round: "r32", side: "left", home: "德国", away: "巴拉圭", homeSlot: "E1", awaySlot: "D3", score: [1, 1], winner: "巴拉圭", loser: "德国" },
-    { code: "75", round: "r32", side: "left", home: "荷兰", away: "摩洛哥", homeSlot: "F1", awaySlot: "C2", score: [1, 1], winner: "摩洛哥", loser: "荷兰" },
-    { code: "76", round: "r32", side: "left", home: "巴西", away: "日本", homeSlot: "C1", awaySlot: "F2", score: [2, 1], winner: "巴西", loser: "日本" },
-    { code: "77", round: "r32", side: "left", home: "法国", away: "瑞典", homeSlot: "I1", awaySlot: "F3" },
-    { code: "78", round: "r32", side: "left", home: "科特迪瓦", away: "挪威", homeSlot: "E2", awaySlot: "I2" },
-    { code: "79", round: "r32", side: "left", home: "墨西哥", away: "厄瓜多尔", homeSlot: "A1", awaySlot: "E3" },
-    { code: "80", round: "r32", side: "left", home: "英格兰", away: "刚果金", homeSlot: "L1", awaySlot: "K3" },
-    { code: "81", round: "r32", side: "right", home: "美国", away: "波黑", homeSlot: "D1", awaySlot: "B3" },
-    { code: "82", round: "r32", side: "right", home: "比利时", away: "塞内加尔", homeSlot: "G1", awaySlot: "I3" },
-    { code: "83", round: "r32", side: "right", home: "葡萄牙", away: "克罗地亚", homeSlot: "K2", awaySlot: "L2" },
-    { code: "84", round: "r32", side: "right", home: "西班牙", away: "奥地利", homeSlot: "H1", awaySlot: "J2" },
-    { code: "85", round: "r32", side: "right", home: "瑞士", away: "阿尔及利", homeSlot: "B1", awaySlot: "J3" },
-    { code: "86", round: "r32", side: "right", home: "阿根廷", away: "佛得角", homeSlot: "J1", awaySlot: "H2" },
-    { code: "87", round: "r32", side: "right", home: "哥伦比亚", away: "加纳", homeSlot: "K1", awaySlot: "L3" },
-    { code: "88", round: "r32", side: "right", home: "澳大利亚", away: "埃及", homeSlot: "D2", awaySlot: "G2" },
-    { code: "89", round: "r16", side: "left", home: "W73", away: "W74" },
-    { code: "90", round: "r16", side: "left", home: "W75", away: "W76" },
-    { code: "91", round: "r16", side: "left", home: "W77", away: "W78" },
-    { code: "92", round: "r16", side: "left", home: "W79", away: "W80" },
-    { code: "93", round: "r16", side: "right", home: "W81", away: "W82" },
-    { code: "94", round: "r16", side: "right", home: "W83", away: "W84" },
-    { code: "95", round: "r16", side: "right", home: "W85", away: "W86" },
-    { code: "96", round: "r16", side: "right", home: "W87", away: "W88" },
-    { code: "97", round: "qf", side: "left", home: "W89", away: "W90" },
-    { code: "98", round: "qf", side: "left", home: "W91", away: "W92" },
-    { code: "99", round: "qf", side: "right", home: "W93", away: "W94" },
-    { code: "100", round: "qf", side: "right", home: "W95", away: "W96" },
-    { code: "101", round: "sf", side: "left", home: "W97", away: "W98" },
-    { code: "102", round: "sf", side: "right", home: "W99", away: "W100" },
-    { code: "103", round: "third", side: "center", home: "L101", away: "L102" },
-    { code: "104", round: "final", side: "center", home: "W101", away: "W102" }
+  "rankSource": "FIFA/Coca-Cola Men's World Ranking",
+  "rankDate": "2026-06-11",
+  "matches": [
+    {
+      "code": "73",
+      "round": "r32",
+      "side": "left",
+      "home": "南非",
+      "away": "加拿大",
+      "homeSlot": "A2",
+      "awaySlot": "B2",
+      "score": [
+        0,
+        1
+      ],
+      "winner": "加拿大",
+      "loser": "南非"
+    },
+    {
+      "code": "74",
+      "round": "r32",
+      "side": "left",
+      "home": "德国",
+      "away": "巴拉圭",
+      "homeSlot": "E1",
+      "awaySlot": "D3",
+      "score": [
+        1,
+        1
+      ],
+      "winner": "巴拉圭",
+      "loser": "德国"
+    },
+    {
+      "code": "75",
+      "round": "r32",
+      "side": "left",
+      "home": "荷兰",
+      "away": "摩洛哥",
+      "homeSlot": "F1",
+      "awaySlot": "C2",
+      "score": [
+        1,
+        1
+      ],
+      "winner": "摩洛哥",
+      "loser": "荷兰"
+    },
+    {
+      "code": "76",
+      "round": "r32",
+      "side": "left",
+      "home": "巴西",
+      "away": "日本",
+      "homeSlot": "C1",
+      "awaySlot": "F2",
+      "score": [
+        2,
+        1
+      ],
+      "winner": "巴西",
+      "loser": "日本"
+    },
+    {
+      "code": "77",
+      "round": "r32",
+      "side": "left",
+      "home": "法国",
+      "away": "瑞典",
+      "homeSlot": "I1",
+      "awaySlot": "F3",
+      "score": [
+        3,
+        0
+      ],
+      "winner": "??",
+      "loser": "??"
+    },
+    {
+      "code": "78",
+      "round": "r32",
+      "side": "left",
+      "home": "科特迪瓦",
+      "away": "挪威",
+      "homeSlot": "E2",
+      "awaySlot": "I2",
+      "score": [
+        1,
+        2
+      ],
+      "winner": "??",
+      "loser": "????"
+    },
+    {
+      "code": "79",
+      "round": "r32",
+      "side": "left",
+      "home": "墨西哥",
+      "away": "厄瓜多尔",
+      "homeSlot": "A1",
+      "awaySlot": "E3",
+      "score": [
+        2,
+        0
+      ],
+      "winner": "???",
+      "loser": "????"
+    },
+    {
+      "code": "80",
+      "round": "r32",
+      "side": "left",
+      "home": "英格兰",
+      "away": "刚果金",
+      "homeSlot": "L1",
+      "awaySlot": "K3"
+    },
+    {
+      "code": "81",
+      "round": "r32",
+      "side": "right",
+      "home": "美国",
+      "away": "波黑",
+      "homeSlot": "D1",
+      "awaySlot": "B3"
+    },
+    {
+      "code": "82",
+      "round": "r32",
+      "side": "right",
+      "home": "比利时",
+      "away": "塞内加尔",
+      "homeSlot": "G1",
+      "awaySlot": "I3"
+    },
+    {
+      "code": "83",
+      "round": "r32",
+      "side": "right",
+      "home": "葡萄牙",
+      "away": "克罗地亚",
+      "homeSlot": "K2",
+      "awaySlot": "L2"
+    },
+    {
+      "code": "84",
+      "round": "r32",
+      "side": "right",
+      "home": "西班牙",
+      "away": "奥地利",
+      "homeSlot": "H1",
+      "awaySlot": "J2"
+    },
+    {
+      "code": "85",
+      "round": "r32",
+      "side": "right",
+      "home": "瑞士",
+      "away": "阿尔及利",
+      "homeSlot": "B1",
+      "awaySlot": "J3"
+    },
+    {
+      "code": "86",
+      "round": "r32",
+      "side": "right",
+      "home": "阿根廷",
+      "away": "佛得角",
+      "homeSlot": "J1",
+      "awaySlot": "H2"
+    },
+    {
+      "code": "87",
+      "round": "r32",
+      "side": "right",
+      "home": "哥伦比亚",
+      "away": "加纳",
+      "homeSlot": "K1",
+      "awaySlot": "L3"
+    },
+    {
+      "code": "88",
+      "round": "r32",
+      "side": "right",
+      "home": "澳大利亚",
+      "away": "埃及",
+      "homeSlot": "D2",
+      "awaySlot": "G2"
+    },
+    {
+      "code": "89",
+      "round": "r16",
+      "side": "left",
+      "home": "W73",
+      "away": "W74"
+    },
+    {
+      "code": "90",
+      "round": "r16",
+      "side": "left",
+      "home": "W75",
+      "away": "W76"
+    },
+    {
+      "code": "91",
+      "round": "r16",
+      "side": "left",
+      "home": "W77",
+      "away": "W78"
+    },
+    {
+      "code": "92",
+      "round": "r16",
+      "side": "left",
+      "home": "W79",
+      "away": "W80"
+    },
+    {
+      "code": "93",
+      "round": "r16",
+      "side": "right",
+      "home": "W81",
+      "away": "W82"
+    },
+    {
+      "code": "94",
+      "round": "r16",
+      "side": "right",
+      "home": "W83",
+      "away": "W84"
+    },
+    {
+      "code": "95",
+      "round": "r16",
+      "side": "right",
+      "home": "W85",
+      "away": "W86"
+    },
+    {
+      "code": "96",
+      "round": "r16",
+      "side": "right",
+      "home": "W87",
+      "away": "W88"
+    },
+    {
+      "code": "97",
+      "round": "qf",
+      "side": "left",
+      "home": "W89",
+      "away": "W90"
+    },
+    {
+      "code": "98",
+      "round": "qf",
+      "side": "left",
+      "home": "W91",
+      "away": "W92"
+    },
+    {
+      "code": "99",
+      "round": "qf",
+      "side": "right",
+      "home": "W93",
+      "away": "W94"
+    },
+    {
+      "code": "100",
+      "round": "qf",
+      "side": "right",
+      "home": "W95",
+      "away": "W96"
+    },
+    {
+      "code": "101",
+      "round": "sf",
+      "side": "left",
+      "home": "W97",
+      "away": "W98"
+    },
+    {
+      "code": "102",
+      "round": "sf",
+      "side": "right",
+      "home": "W99",
+      "away": "W100"
+    },
+    {
+      "code": "103",
+      "round": "third",
+      "side": "center",
+      "home": "L101",
+      "away": "L102"
+    },
+    {
+      "code": "104",
+      "round": "final",
+      "side": "center",
+      "home": "W101",
+      "away": "W102"
+    }
   ]
 };
