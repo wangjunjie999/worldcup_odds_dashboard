@@ -10743,7 +10743,7 @@ window.MATCHES = [
   {
     "id": "2026-07-01-ivory-coast-norway",
     "date": "2026-07-01",
-    "code": "??077 ???>",
+    "code": "周二077 世界杯>",
     "teamA": "科特迪瓦",
     "teamB": "挪威",
     "rankA": 33,
@@ -10754,7 +10754,7 @@ window.MATCHES = [
     ],
     "handicap": 1,
     "host": false,
-    "sourceStatus": "???",
+    "sourceStatus": "已录入",
     "sourceImage": "assets/screenshots/2026-07-01/ivory-coast-norway.png",
     "normal": {
       "history": [
@@ -10903,12 +10903,12 @@ window.MATCHES = [
         }
       ]
     },
-    "manualNote": "?????1.82??1.80????????????????3.70??3.45???1:2??(+1)??"
+    "manualNote": "普通客胜由1.82降至1.80，客队热度维持低位；受让一球平由3.70降至3.45，最终1:2打出(+1)平。"
   },
   {
     "id": "2026-07-01-france-sweden",
     "date": "2026-07-01",
-    "code": "??078 ???>",
+    "code": "周二078 世界杯>",
     "teamA": "法国",
     "teamB": "瑞典",
     "rankA": 3,
@@ -10919,7 +10919,7 @@ window.MATCHES = [
     ],
     "handicap": -1,
     "host": false,
-    "sourceStatus": "???",
+    "sourceStatus": "已录入",
     "sourceImage": "assets/screenshots/2026-07-01/france-sweden.png",
     "normal": {
       "history": [
@@ -11062,12 +11062,12 @@ window.MATCHES = [
         }
       ]
     },
-    "manualNote": "?????1.26??1.16?????????????1.86??1.60???3:0?????"
+    "manualNote": "普通主胜由1.26降至1.16，支持持续增强；让一球胜由1.86降至1.60，最终3:0穿一球盘。"
   },
   {
     "id": "2026-07-01-mexico-ecuador",
     "date": "2026-07-01",
-    "code": "??079 ???>",
+    "code": "周二079 世界杯>",
     "teamA": "墨西哥",
     "teamB": "厄瓜多尔",
     "rankA": 14,
@@ -11078,7 +11078,7 @@ window.MATCHES = [
     ],
     "handicap": -1,
     "host": true,
-    "sourceStatus": "???",
+    "sourceStatus": "已录入",
     "sourceImage": "assets/screenshots/2026-07-01/mexico-ecuador.png",
     "normal": {
       "history": [
@@ -11245,7 +11245,7 @@ window.MATCHES = [
         }
       ]
     },
-    "manualNote": "???????????????2.70??2.60???????????2:0??????????4.50??5.15????????"
+    "manualNote": "墨西哥为东道主球队；普通平赔由2.70降至2.60，平局防范增强，但最终2:0主胜打出；让一球胜由4.50升至5.15，最终穿一球盘。"
   }
 ];
 
@@ -11391,8 +11391,8 @@ window.KNOCKOUT_BRACKET = {
         3,
         0
       ],
-      "winner": "??",
-      "loser": "??"
+      "winner": "法国",
+      "loser": "瑞典"
     },
     {
       "code": "78",
@@ -11406,8 +11406,8 @@ window.KNOCKOUT_BRACKET = {
         1,
         2
       ],
-      "winner": "??",
-      "loser": "????"
+      "winner": "挪威",
+      "loser": "科特迪瓦"
     },
     {
       "code": "79",
@@ -11421,8 +11421,8 @@ window.KNOCKOUT_BRACKET = {
         2,
         0
       ],
-      "winner": "???",
-      "loser": "????"
+      "winner": "墨西哥",
+      "loser": "厄瓜多尔"
     },
     {
       "code": "80",
