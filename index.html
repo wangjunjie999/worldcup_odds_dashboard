@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>美加墨世界杯赔率变化复盘</title>
-  <link rel="stylesheet" href="styles.css?v=20260705-r16-90">
+  <link rel="stylesheet" href="styles.css?v=20260707-r16-92">
 </head>
 <body>
 <div class="app">
@@ -18,36 +18,39 @@
   </header>
 
   <nav class="page-tabs" aria-label="页面切换">
-    <a class="page-tab active" href="index.html?v=20260705-r16-90">赔率数据</a>
-    <a class="page-tab" href="bracket.html?v=20260705-r16-90">晋级图 / 小组排名</a>
+    <a class="page-tab active" href="index.html?v=20260707-r16-92">赔率数据</a>
+    <a class="page-tab" href="bracket.html?v=20260707-r16-92">晋级图 / 小组排名</a>
   </nav>
 
   <section class="toolbar">
-    <input id="search" class="control search" placeholder="搜索球队、编号或日期">
-    <select id="handicap" class="control">
-      <option value="all">全部让球</option>
-      <option value="-3">让 -3</option>
-      <option value="-2">让 -2</option>
-      <option value="-1">让 -1</option>
-      <option value="1">受让 +1</option>
-      <option value="2">受让 +2</option>
-    </select>
-    <select id="tier" class="control">
-      <option value="all">全部档位</option>
-      <option value="extreme">极热档</option>
-      <option value="strong">强热档</option>
-      <option value="mid">中热档</option>
-      <option value="balanced">均衡档</option>
-      <option value="high">高赔档</option>
-    </select>
-    <div id="dateFilter" class="date-filter" aria-label="日期筛选"></div>
-    <select id="sort" class="control">
-      <option value="date-desc">日期：新到旧</option>
-      <option value="date-asc">日期：旧到新</option>
-      <option value="favorite">热门赔率：低到高</option>
-      <option value="handicap">让球：深到浅</option>
-    </select>
-    <button id="compactBtn" class="btn">紧凑模式</button>
+    <div class="toolbar-main">
+      <input id="search" class="control search" placeholder="搜索球队、编号或日期">
+      <select id="sort" class="control">
+        <option value="date-desc">日期：新到旧</option>
+        <option value="date-asc">日期：旧到新</option>
+        <option value="favorite">热门赔率：低到高</option>
+        <option value="handicap">让球：深到浅</option>
+      </select>
+      <button id="compactBtn" class="btn">紧凑模式</button>
+    </div>
+    <div class="toolbar-filter-grid">
+      <div class="filter-group">
+        <span class="toolbar-label">让球</span>
+        <div id="handicapFilter" class="chip-filter" aria-label="让球筛选"></div>
+      </div>
+      <div class="filter-group">
+        <span class="toolbar-label">档位</span>
+        <div id="tierFilter" class="chip-filter" aria-label="赔率档位筛选"></div>
+      </div>
+      <div class="filter-group">
+        <span class="toolbar-label">趋势</span>
+        <div id="trendFilter" class="chip-filter" aria-label="让球方趋势筛选"></div>
+      </div>
+    </div>
+    <div class="toolbar-dates">
+      <span class="toolbar-label">日期</span>
+      <div id="dateFilter" class="date-filter" aria-label="日期筛选"></div>
+    </div>
   </section>
 
   <section id="stats" class="stats"></section>
@@ -72,7 +75,7 @@
     数据来源：用户保存的 sporttery.cn 比赛固定奖金页面截图。页面为离线静态分析工具，不自动联网抓取。标注“待复核”的记录保留为可编辑摘要，后续代理应以原始截图为准补齐，不得猜测模糊数字。
   </footer>
 </div>
-<script src="data.js?v=20260705-r16-90"></script>
-<script src="app.js?v=20260705-r16-90"></script>
+  <script src="data.js?v=20260707-r16-92"></script>
+  <script src="app.js?v=20260707-r16-92"></script>
 </body>
 </html>
